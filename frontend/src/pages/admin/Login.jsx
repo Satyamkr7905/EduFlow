@@ -130,7 +130,7 @@ export default function Login() {
               <Input
                 label="Email"
                 type="email"
-                placeholder="admin@eduflow.app"
+                placeholder="satyamkumar9250@gmail.com"
                 leftIcon={Mail}
                 value={values.email}
                 onChange={onChange('email')}

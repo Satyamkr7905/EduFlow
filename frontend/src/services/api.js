@@ -1,7 +1,9 @@
 import axios from 'axios';
-import { STORAGE_KEYS } from '../utils/constants';
+import { API_PRODUCTION_URL, STORAGE_KEYS } from '../utils/constants';
 
-export const API_URL = (import.meta.env.VITE_API_URL || 'http://localhost:5000/api').replace(/\/$/, '');
+export const API_URL = (
+  import.meta.env.VITE_API_URL || (import.meta.env.PROD ? API_PRODUCTION_URL : '/api')
+).replace(/\/$/, '');
 
 /** Token lives in localStorage ("remember me") or sessionStorage. */
 export const tokenStorage = {

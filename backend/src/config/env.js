@@ -32,10 +32,13 @@ export const env = {
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1d',
   jwtRememberExpiresIn: process.env.JWT_REMEMBER_EXPIRES_IN || '30d',
 
-  corsOrigins: (process.env.CORS_ORIGINS || 'http://localhost:5173')
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean),
+  corsOrigins: [
+    ...(process.env.CORS_ORIGINS || 'http://localhost:5173,http://127.0.0.1:5173')
+      .split(',')
+      .map((origin) => origin.trim())
+      .filter(Boolean),
+    'https://edu-flow-wheat.vercel.app',
+  ].filter((origin, i, list) => list.indexOf(origin) === i),
 };
 
 if (env.isProduction && env.jwtSecret.length < 32) {

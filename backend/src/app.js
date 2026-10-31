@@ -20,6 +20,12 @@ app.use(
     origin(origin, callback) {
       // Allow non-browser clients (no Origin header) and whitelisted origins
       if (!origin || env.corsOrigins.includes(origin)) return callback(null, true);
+      if (origin && /^https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+        return callback(null, true);
+      }
+      if (origin && /^https:\/\/edu-flow-wheat[a-z0-9-]*\.vercel\.app$/.test(origin)) {
+        return callback(null, true);
+      }
       return callback(ApiError.forbidden(`Origin ${origin} is not allowed by CORS`));
     },
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],

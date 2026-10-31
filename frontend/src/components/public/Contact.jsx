@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Reveal } from '../ui/Motion';
+import { CONTACT } from '../../utils/constants';
 
 const DETAILS = [
-  { icon: Mail, label: 'Email', value: 'hello@eduflow.app', href: 'mailto:hello@eduflow.app' },
-  { icon: Phone, label: 'Phone', value: '+91 98765 43210', href: 'tel:+919876543210' },
+  { icon: Mail, label: 'Email', value: CONTACT.email, href: CONTACT.emailHref },
+  { icon: Phone, label: 'Phone', value: CONTACT.phoneDisplay, href: CONTACT.phoneHref },
   { icon: MapPin, label: 'Visit', value: 'Koramangala, Bengaluru, India' },
 ];
 

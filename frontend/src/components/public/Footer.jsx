@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Logo } from '../ui/Logo';
-import { APP_NAME } from '../../utils/constants';
+import { APP_NAME, CONTACT } from '../../utils/constants';
 
 const COLUMNS = [
   {
@@ -30,6 +30,14 @@ export default function Footer() {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">
               {APP_NAME} connects parents, students and schools with the right programs, scholarships and
               events — and helps our team respond to every inquiry quickly.
+            </p>
+            <p className="mt-4 space-y-1 text-sm text-ink">
+              <a href={CONTACT.emailHref} className="block transition hover:text-coral">
+                {CONTACT.email}
+              </a>
+              <a href={CONTACT.phoneHref} className="block transition hover:text-coral">
+                {CONTACT.phoneDisplay}
+              </a>
             </p>
           </div>
           {COLUMNS.map((col) => (

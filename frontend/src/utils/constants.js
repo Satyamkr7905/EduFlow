@@ -1,5 +1,16 @@
 export const APP_NAME = 'EduFlow';
 
+export const CONTACT = {
+  email: 'satyamkumar9250@gmail.com',
+  phone: '7033688853',
+  phoneDisplay: '+91 70336 88853',
+  phoneHref: 'tel:+917033688853',
+  emailHref: 'mailto:satyamkumar9250@gmail.com',
+};
+
+export const API_PRODUCTION_URL = 'https://eduflow-mebg.onrender.com/api';
+export const SITE_PRODUCTION_URL = 'https://edu-flow-wheat.vercel.app';
+
 export const USER_TYPES = ['Parent', 'Student', 'School'];
 export const CATEGORIES = ['Scholarship', 'Concert', 'Admission', 'General Query'];
 export const STATUSES = ['New', 'In Progress', 'Resolved'];
