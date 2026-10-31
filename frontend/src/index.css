@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream font-body text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-sage text-ink;
+  }
+
+  /* Minimal scrollbars that match the palette */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #d6d2c8 transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: #d6d2c8;
+    border-radius: 999px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl3 border border-line bg-white shadow-soft;
+  }
+
+  .pill {
+    @apply inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium;
+  }
+
+  .field {
+    @apply w-full rounded-2xl border border-line bg-white px-4 py-3 text-sm text-ink placeholder:text-muted/70
+      transition-all duration-200 focus:border-ink/40 focus:outline-none focus:ring-4 focus:ring-ink/5
+      disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .field-error {
+    @apply border-coral focus:border-coral focus:ring-coral/15;
+  }
+
+  .skeleton {
+    @apply rounded-xl bg-[linear-gradient(90deg,#efece5_25%,#f7f5f0_50%,#efece5_75%)] bg-[length:200%_100%] animate-shimmer;
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-4 focus-visible:ring-ink/10;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Recharts tweaks */
+.recharts-tooltip-cursor {
+  fill: rgba(23, 23, 23, 0.04) !important;
+}
+.recharts-surface:focus,
+.recharts-wrapper:focus {
+  outline: none;
+}
